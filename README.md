@@ -1,5 +1,5 @@
 # Tutorbuddies-project
-"TutorBuddies is an online platform that connects students with experienced tutors, providing personalized learning experiences and academic support."
+TutorBuddies is an online platform that connects students with experienced tutors, providing personalized learning experiences and academic support.
 "TutorBuddies is a platform that provides comprehensive home tuition services and educational support tailored to each student's individual learning needs.
 
 Features
