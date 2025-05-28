@@ -1,0 +1,22 @@
+
+{% extends 'tutorbuddies/base.html' %}
+
+{% block title %}Contact Us - TutorBuddies{% endblock %}
+
+{% block content %}
+<h2>Contact Us</h2>
+
+{% if messages %}
+  <ul>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send Message</button>
+</form>
+{% endblock %}

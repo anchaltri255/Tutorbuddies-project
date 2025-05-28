@@ -1,0 +1,300 @@
+{% extends 'tutorbuddies/base.html' %}
+{% load static %}
+
+{% block title %}Home | TutorBuddies{% endblock %}
+
+{% block content %}
+
+<!-- 🚀 Bootstrap Carousel (Smaller Height + No Horizontal Padding) -->
+<div id="tutorCarousel" class="carousel slide" data-bs-ride="carousel" style="margin: 0; padding: 0;">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'images/banner1.jpg' %}" class="d-block w-100 banner-image" alt="Slide 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/banner2.jpg' %}" class="d-block w-100 banner-image" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/banner3.jpg' %}" class="d-block w-100 banner-image" alt="Slide 3">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/banner4.jpg' %}" class="d-block w-100 banner-image" alt="Slide 4">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/banner5.jpg' %}" class="d-block w-100 banner-image" alt="Slide 5">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#tutorCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#tutorCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- 🎯 Why Choose Us Section -->
+<div class="container my-5">
+    <h2 class="section-heading text-center">
+        <i class="bi bi-star-fill text-warning me-2"></i>Why Choose Us<i class="bi bi-star-fill text-warning ms-2"></i>
+    </h2>
+    <div class="row g-4">
+        {% comment %} Added class why-choose-card for custom styles {% endcomment %}
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4 shadow-sm border-0 why-choose-card">
+                <div class="card-body">
+                    <i class="fas fa-chalkboard-teacher fa-2x text-primary mb-3 icon-glow"></i>
+                    <h5 class="card-title">Expert Tutors</h5>
+                    <p class="card-text">We handpick experienced and qualified tutors.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4 shadow-sm border-0 why-choose-card">
+                <div class="card-body">
+                    <i class="fas fa-calendar-check fa-2x text-success mb-3 icon-glow"></i>
+                    <h5 class="card-title">Flexible Scheduling</h5>
+                    <p class="card-text">Learn on your own time, at your own pace.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4 shadow-sm border-0 why-choose-card">
+                <div class="card-body">
+                    <i class="fas fa-wallet fa-2x text-warning mb-3 icon-glow"></i>
+                    <h5 class="card-title">Affordable Prices</h5>
+                    <p class="card-text">Quality education that fits your budget.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4 shadow-sm border-0 why-choose-card">
+                <div class="card-body">
+                    <i class="fas fa-user-graduate fa-2x text-info mb-3 icon-glow"></i>
+                    <h5 class="card-title">Personalized Learning</h5>
+                    <p class="card-text">One-on-one sessions to ensure full attention and engagement.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4 shadow-sm border-0 why-choose-card">
+                <div class="card-body">
+                    <i class="fas fa-lightbulb fa-2x text-danger mb-3 icon-glow"></i>
+                    <h5 class="card-title">Concept-Based Teaching</h5>
+                    <p class="card-text">We focus on understanding, not just memorizing concepts.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4 shadow-sm border-0 why-choose-card">
+                <div class="card-body">
+                    <i class="fas fa-chart-line fa-2x text-primary mb-3 icon-glow"></i>
+                    <h5 class="card-title">Progress Tracking</h5>
+                    <p class="card-text">Parents receive consistent updates on student progress.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4 shadow-sm border-0 why-choose-card">
+                <div class="card-body">
+                    <i class="fas fa-smile-beam fa-2x text-success mb-3 icon-glow"></i>
+                    <h5 class="card-title">Friendly Tutors</h5>
+                    <p class="card-text">Our educators are supportive, friendly, and motivating.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4 shadow-sm border-0 why-choose-card">
+                <div class="card-body">
+                    <i class="fas fa-clock fa-2x text-warning mb-3 icon-glow"></i>
+                    <h5 class="card-title">Convenient Options</h5>
+                    <p class="card-text">Whether online or at home, learn at your convenience.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4 shadow-sm border-0 why-choose-card">
+                <div class="card-body">
+                    <i class="fas fa-shield-alt fa-2x text-secondary mb-3 icon-glow"></i>
+                    <h5 class="card-title">Safe Environment</h5>
+                    <p class="card-text">We provide a positive, respectful, and safe learning space.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 💼 Our Services Section -->
+<div class="container my-5">
+    <h2 class="text-center mb-4 section-heading-blue">Our Services</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm border-0 service-card">
+                <div class="card-body">
+                    <i class="fas fa-home fa-2x text-info mb-3 icon-glow"></i>
+                    <h5 class="card-title">Home Tuition</h5>
+                    <p class="card-text">Personalized tutoring in the comfort of your home.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm border-0 service-card">
+                <div class="card-body">
+                    <i class="fas fa-chalkboard-user fa-2x text-success mb-3 icon-glow"></i>
+                    <h5 class="card-title">Online Tuition</h5>
+                    <p class="card-text">Live one-on-one online tuition tailored to each student’s needs.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm border-0 service-card">
+                <div class="card-body">
+                    <i class="fas fa-laptop fa-2x text-primary mb-3 icon-glow"></i>
+                    <h5 class="card-title">Online Coaching Classes</h5>
+                    <p class="card-text">Flexible and interactive online learning experiences.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm border-0 service-card">
+                <div class="card-body">
+                    <i class="fas fa-book-open fa-2x text-success mb-3 icon-glow"></i>
+                    <h5 class="card-title">Exam Preparation</h5>
+                    <p class="card-text">Targeted coaching for board and competitive exams.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm border-0 service-card">
+                <div class="card-body">
+                    <i class="fas fa-question-circle fa-2x text-danger mb-3 icon-glow"></i>
+                    <h5 class="card-title">Doubt Solving</h5>
+                    <p class="card-text">Clear concepts through one-on-one doubt solving sessions.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm border-0 service-card">
+                <div class="card-body">
+                    <i class="fas fa-chalkboard-teacher fa-2x text-warning mb-3 icon-glow"></i>
+                    <h5 class="card-title">Coaching Classes (Class 9 to 12)</h5>
+                    <p class="card-text">Structured, small-batch classroom sessions for Classes 1 to 12 with a focus on concept clarity and academic excellence.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm border-0 service-card">
+                <div class="card-body">
+                    <i class="fas fa-language fa-2x text-secondary mb-3 icon-glow"></i>
+                    <h5 class="card-title">Language Coaching</h5>
+                    <p class="card-text">Coaching in English, Hindi, and regional languages.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm border-0 service-card">
+                <div class="card-body">
+                    <i class="fas fa-lightbulb fa-2x text-info mb-3 icon-glow"></i>
+                    <h5 class="card-title">Foundation & Skill Building</h5>
+                    <p class="card-text">Strengthening basics, communication, and problem-solving skills for younger students through engaging methods.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm border-0 service-card">
+                <div class="card-body">
+                    <i class="fas fa-chalkboard fa-2x text-warning mb-3 icon-glow"></i>
+                    <h5 class="card-title">Offline Classes</h5>
+                    <p class="card-text">Interactive classroom sessions with focus on concept clarity and discipline.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+<style>
+.why-choose-card, .service-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.why-choose-card:hover, .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgb(0 0 0 / 0.2);
+}
+
+/* Icon glow effect */
+.icon-glow {
+    filter: drop-shadow(0 0 6px rgba(0, 123, 255, 0.7));
+    transition: filter 0.3s ease;
+}
+.why-choose-card:hover .icon-glow,
+.service-card:hover .icon-glow {
+    filter: drop-shadow(0 0 10px rgba(0, 123, 255, 1));
+}
+
+/* Section headings improvements */
+.section-heading-blue {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #007bff;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+.section-heading-blue::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 5px;
+    background: linear-gradient(90deg, #007bff, #00d4ff);
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* Card titles */
+.card-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #212529;
+}
+
+/* Card text */
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Adjust icon sizes in cards */
+.card-body i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Banner image adjustments */
+.banner-image {
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Carousel cleanup */
+.carousel {
+    margin: 0;
+    padding: 0;
+}
+
+</style>

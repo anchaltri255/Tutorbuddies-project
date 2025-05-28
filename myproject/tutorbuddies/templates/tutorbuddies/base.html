@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}TutorBuddies{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+      html, body {
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+      /* Ensure elements fit within the screen */
+      .container-fluid {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar {
+          background-color: rgb(2, 78, 99); 
+      }
+      .navbar-nav .nav-item {
+          margin-left: 20px; /* Adjust spacing */
+      }
+      footer {
+          background-color: rgb(2, 78, 99);  
+          color: white;
+          text-align: center;
+      }
+      .navbar-nav .nav-link {
+          font-size: 20px;
+          color: white !important;
+      }
+      .navbar-nav .nav-link:hover {
+          color: #ffcc00 !important;  
+      }
+      .navbar:nth-of-type(2) {
+        background-color: rgb(70, 71, 71) !important; /* Change this color as needed */
+      }
+      .navbar:nth-of-type(2) .nav-link {
+        font-size: 15px;
+        color: white !important;
+      }
+      .navbar:nth-of-type(2) .nav-link:hover {
+        color: yellow !important;
+        text-decoration: underline; /* Underline on hover */
+      }
+      .navbar:nth-of-type(2) .nav-item {
+          margin-right: 0.5px; /* Adjust spacing */
+      }
+      .dropdown-item {
+          color: #003366;
+          font-size: 16px;   
+      }
+      .dropdown-item i {
+          
+          font-size: 18px; /* Adjust icon size */
+      }
+      .dropdown-item:hover {
+          background-color: #003366;
+          color: white;
+      }
+      .navbar-nav .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      /* Adjust the dropdown positioning */
+      .navbar-nav .dropdown-menu {
+        margin-top: 0; /* Ensures the dropdown appears right below the parent */
+      }
+      .custom-dark-blue {
+      background-color: #003366; 
+      color: rgb(242, 4, 4); 
+      }
+      .hover-zoom {
+        position: relative;
+        background-size: cover; 
+        background-position: center; 
+        width: 100%; 
+        height: 250px; 
+        overflow: hidden; 
+        transition: transform 0.3s ease-in-out; 
+      }
+      .hover-zoom img {
+          transition: transform 0.3s ease-in-out;
+          width: 80%; 
+          height: auto;
+          margin: 0 auto; 
+      }
+      .hover-zoom:hover img {
+          transform: scale(1.2); 
+      }
+      .hover-zoom:hover {
+          background-color:none;
+      }
+      .goodnessseccont p {
+          max-width: 200px; 
+          margin: 0 auto; 
+          text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+          position: relative;
+          z-index: 10; 
+          color: rgb(52, 2, 2); 
+          font-size: 1.2rem;
+          position: absolute;
+          bottom: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: rgb(67, 2, 2); 
+          font-weight: bold;
+          background-color: none; 
+          padding: 5px;
+      }
+      .goodnessseccont {
+          max-width: 200px; 
+          margin: 0 auto; 
+        }
+      .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 8px 10px;
+        }
+        .goodnessseccont img {
+          width: 200px; /* Set a fixed width */
+          height: 180px; /* Set a fixed height */
+          object-fit: cover; /* Ensures image fills the area while maintaining aspect ratio */
+          border-radius: 5px; /* Optional: Rounded corners */
+          transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+         
+      }
+
+      .goodnessseccont img:hover {
+          transform: scale(1.1); /* Slight zoom effect on hover */
+      }
+      .goodnessseccont .fw-bold {
+        font-size: 10px; /* Adjust the size as needed */
+        font-weight: bold; /* Ensures bold text */
+        color: #333; /* Optional: Adjust color */
+      }
+  </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            
+          </a>
+          </li>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+              <li class="nav-item mx-3">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link active" aria-current="page" href="{% url 'tutors' %}">Tutor</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contact</a>
+              </li> 
+              {% if user.is_authenticated %}
+              <li>
+                <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
+              </li>
+              {% else %}
+              <li>
+                <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+              </li>
+              <li><a class="nav-link active" aria-current="page" href="{% url 'register' %}">Register</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    <!-- Page content -->
+    <div class="container my-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="container-fluid fixed-bottom">
+        <p class="mb-0">&copy; 2025 TutorBuddies. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
