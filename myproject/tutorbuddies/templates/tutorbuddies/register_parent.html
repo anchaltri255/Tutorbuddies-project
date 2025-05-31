@@ -31,15 +31,16 @@
         margin-bottom: 30px;
     }
     .child-details-heading {
-        font-size: 2rem;
-        color: #198754; /* Bootstrap green */
+        font-size: 1.5rem;
+        color: #198754;
         font-weight: 600;
-        margin-top: 20px;
+        margin-top: 30px;
     }
-
-    .child-section label {
-        color: #0d6efd; /* Bootstrap primary */
-        font-size: 0.95rem;
+    .child-section {
+        border: 2px solid #198754;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 15px;
     }
 </style>
 
@@ -58,79 +59,110 @@
                     {% csrf_token %}
                     <div class="row g-3">
                         <div class="col-md-12">
-                            <label for="full_name" class="form-label">Full Name</label>
-                            <input type="text" id="full_name" name="full_name" class="form-control" required>
+                            <label for="full_name">Full Name</label>
+                            <input type="text" name="full_name" class="form-control" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="email" class="form-label">Email ID</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                            <label for="email">Email ID</label>
+                            <input type="email" name="email" class="form-control" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="phone" class="form-label">Mobile Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                            <label for="phone">Mobile Number</label>
+                            <input type="tel" name="phone" class="form-control" required>
                         </div>
                         <div class="col-md-12">
-                            <label for="address" class="form-label">Address</label>
-                            <textarea id="address" name="address" rows="2" class="form-control" required></textarea>
+                            <label for="address">Address</label>
+                            <textarea name="address" rows="2" class="form-control" required></textarea>
                         </div>
                         <div class="col-md-6">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" id="password" name="password" class="form-control" required>
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="confirm_password" class="form-label">Confirm Password</label>
-                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
-                        </div>
-                        <hr class="my-3">
-                        <h5 class="child-details-heading">Child Details</h5>
-                        <div class="col-md-6">
-                            <label for="child_name" class="form-label">Child's Name</label>
-                            <input type="text" id="child_name" name="child_name" class="form-control" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="child_age" class="form-label">Age</label>
-                            <input type="number" id="child_age" name="child_age" class="form-control" required>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="child_gender" class="form-label">Gender</label>
-                            <select id="child_gender" name="child_gender" class="form-select" required>
-                                <option selected disabled value="">Choose...</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="child_class" class="form-label">Class</label>
-                            <input type="text" id="child_class" name="child_class" class="form-control" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="child_board" class="form-label">Board</label>
-                            <select id="child_board" name="child_board" class="form-select" required>
-                                <option selected disabled value="">Choose...</option>
-                                <option>CBSE</option>
-                                <option>ICSE</option>
-                                <option>State Board</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="child_school" class="form-label">School Name</label>
-                            <input type="text" id="child_school" name="child_school" class="form-control" required>
-                        </div>
-                        <div class="col-12 form-check mt-2">
-                            <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
-                            <label class="form-check-label" for="terms">
-                                I agree to the <a href="#">terms and conditions</a>
-                            </label>
+                            <label for="confirm_password">Confirm Password</label>
+                            <input type="password" name="confirm_password" class="form-control" required>
                         </div>
                     </div>
-                    <div class="d-grid mt-4">
+
+                    <hr class="my-4">
+                    <h5 class="child-details-heading">Child Details</h5>
+                    <div id="children-container">
+                        <div class="child-section">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label>Child's Name</label>
+                                    <input type="text" name="child_name[]" class="form-control" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Age</label>
+                                    <input type="number" name="child_age[]" class="form-control" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Gender</label>
+                                    <select name="child_gender[]" class="form-select" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Class</label>
+                                    <input type="text" name="child_class[]" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Board</label>
+                                    <select name="child_board[]" class="form-select" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option>CBSE</option>
+                                        <option>ICSE</option>
+                                        <option>State Board</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>School Name</label>
+                                    <input type="text" name="child_school[]" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 text-end">
+                        <button type="button" class="btn btn-outline-success" onclick="addChild()">+ Add Another Child</button>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" name="terms" required>
+                        <label class="form-check-label">
+                            I agree to the <a href="#">terms and conditions</a>
+                        </label>
+                    </div>
+
+                    <div class="d-grid mt-2">
                         <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+function addChild() {
+    const container = document.getElementById('children-container');
+    const firstChild = container.querySelector('.child-section');
+    const newChild = firstChild.cloneNode(true);
+
+    newChild.querySelectorAll('input, select').forEach(field => {
+        field.value = '';
+    });
+
+    container.appendChild(newChild);
+}
+</script>
 {% endblock %}

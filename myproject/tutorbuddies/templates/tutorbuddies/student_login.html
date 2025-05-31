@@ -42,7 +42,7 @@
         <!-- Right Side: Login Form -->
         <div class="col-md-6">
             <div class="login-container">
-                <h3 class="text-center section-title">Student Login</h3>
+                <h3 class="text-center section-title">Student Registration</h3>
                 <form method="post" class="login-form">
                     {% csrf_token %}
                     <div class="row g-3">
@@ -93,13 +93,24 @@
                             <label for="email" class="form-label">Email ID</label>
                             <input type="email" id="email" name="email" class="form-control" required>
                         </div>
+                        <div class="col-md-6">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                        </div>
                         <div class="col-md-12">
                             <label for="address" class="form-label">Address</label>
                             <textarea id="address" name="address" rows="2" class="form-control" required></textarea>
                         </div>
                     </div>
                     <div class="d-grid mt-4">
-                        <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                    </div>
+                    <div class="text-center mt-3">
+                        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
                     </div>
                 </form>
             </div>

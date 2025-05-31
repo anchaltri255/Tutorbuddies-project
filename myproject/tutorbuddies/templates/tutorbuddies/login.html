@@ -1,14 +1,72 @@
-
 {% extends 'tutorbuddies/base.html' %}
 {% load static %}
 
-{% block title %}Home | TutorBuddies{% endblock %}
+{% block title %}Login | TutorBuddies{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</form>
+<style>
+    .login-container {
+        background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+    .login-form label {
+        font-weight: 500;
+    }
+    .login-form input, .login-form select {
+        border-radius: 10px;
+    }
+    .login-form .btn {
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .section-title {
+        font-weight: 700;
+        color: #0d6efd;
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="container min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="row justify-content-center w-100">
+        <!-- Centered Column for Login Form -->
+        <div class="col-md-6 col-lg-5">
+            <div class="login-container">
+                <h3 class="text-center section-title">Login</h3>
+                <form method="post" class="login-form">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Login As</label>
+                        <select name="role" id="role" class="form-select" required>
+                            <option disabled selected value="">Select your role</option>
+                            <option value="student">Student</option>
+                            <option value="parent">Parent</option>
+                            <option value="teacher">Teacher</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email ID</label>
+                        <input type="email" name="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" id="password" class="form-control" required>
+                    </div>
+                    <div class="d-grid mt-3">
+                        <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                    </div>
+                    <div class="text-center mt-4">
+                        <p>Don't have an account?</p>
+                        <a href="{% url 'register_parent' %}" class="btn btn-link">Register as Parent</a> |
+                        <a href="{% url 'student_login' %}" class="btn btn-link">Register as Student</a> |
+                        <a href="{% url 'tutor_login' %}" class="btn btn-link">Register as Teacher</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
