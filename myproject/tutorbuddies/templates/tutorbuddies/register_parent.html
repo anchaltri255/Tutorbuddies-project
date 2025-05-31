@@ -1,0 +1,136 @@
+{% extends 'tutorbuddies/base.html' %}
+{% load static %}
+
+{% block title %}Parent Registration | TutorBuddies{% endblock %}
+
+{% block content %}
+<style>
+    .register-container {
+        background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+    .register-form label {
+        font-weight: 500;
+    }
+    .register-form input,
+    .register-form select,
+    .register-form textarea {
+        border-radius: 10px;
+    }
+    .register-form .btn {
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .section-title {
+        font-weight: 700;
+        color: #0d6efd;
+        margin-bottom: 30px;
+    }
+    .child-details-heading {
+        font-size: 2rem;
+        color: #198754; /* Bootstrap green */
+        font-weight: 600;
+        margin-top: 20px;
+    }
+
+    .child-section label {
+        color: #0d6efd; /* Bootstrap primary */
+        font-size: 0.95rem;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row align-items-center">
+        <!-- Left Side: Image -->
+        <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="{% static 'images/parent.jpg' %}" alt="Parent Illustration" class="img-fluid" style="max-height: 800px; width: 100%; object-fit: contain;">
+        </div>
+
+        <!-- Right Side: Registration Form -->
+        <div class="col-md-6">
+            <div class="register-container">
+                <h3 class="text-center section-title">Parent Registration</h3>
+                <form method="post" class="register-form">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label for="full_name" class="form-label">Full Name</label>
+                            <input type="text" id="full_name" name="full_name" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email ID</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Mobile Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea id="address" name="address" rows="2" class="form-control" required></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                        </div>
+                        <hr class="my-3">
+                        <h5 class="child-details-heading">Child Details</h5>
+                        <div class="col-md-6">
+                            <label for="child_name" class="form-label">Child's Name</label>
+                            <input type="text" id="child_name" name="child_name" class="form-control" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="child_age" class="form-label">Age</label>
+                            <input type="number" id="child_age" name="child_age" class="form-control" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="child_gender" class="form-label">Gender</label>
+                            <select id="child_gender" name="child_gender" class="form-select" required>
+                                <option selected disabled value="">Choose...</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="child_class" class="form-label">Class</label>
+                            <input type="text" id="child_class" name="child_class" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="child_board" class="form-label">Board</label>
+                            <select id="child_board" name="child_board" class="form-select" required>
+                                <option selected disabled value="">Choose...</option>
+                                <option>CBSE</option>
+                                <option>ICSE</option>
+                                <option>State Board</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="child_school" class="form-label">School Name</label>
+                            <input type="text" id="child_school" name="child_school" class="form-control" required>
+                        </div>
+                        <div class="col-12 form-check mt-2">
+                            <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
+                            <label class="form-check-label" for="terms">
+                                I agree to the <a href="#">terms and conditions</a>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

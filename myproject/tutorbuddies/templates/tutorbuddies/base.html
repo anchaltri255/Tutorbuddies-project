@@ -1,196 +1,224 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}TutorBuddies{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <title>{% block title %}TutorBuddies{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <style>
-      html, body {
-        overflow-x: hidden;
-        max-width: 100%;
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      /* Ensure full height for flex layout */
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background-color: rgb(2, 78, 99);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      font-weight: 600;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 0.8rem 2rem;
+    }
+
+    .navbar-nav.mx-auto .nav-link {
+      color: white !important;
+      font-weight: 600;
+      padding: 8px 16px;
+      transition: 0.3s;
+    }
+    .navbar-brand {
+      font-size: 1.8rem;
+      color: white !important;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .navbar-nav .nav-link {
+      color: rgb(10, 10, 10) !important;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+
+    .navbar-nav.mx-auto .nav-link:hover,
+    .navbar-nav.mx-auto .nav-link.active {
+      background-color: #ffcc00;
+      color: rgb(2, 78, 99) !important;
+      border-radius: 6px;
+    }
+
+    .custom-btn {
+      background-color: white !important;
+      color: rgb(2, 78, 99) !important;
+      border: 2px solid #ffcc00;
+      border-radius: 8px;
+      font-weight: 700;
+      padding: 6px 16px;
+      margin-left: 10px;
+    }
+
+    .custom-btn:hover {
+      background-color: #ffcc00 !important;
+      color: rgb(2, 78, 99) !important;
+    }
+    .nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+      margin-top: 0;
+    }
+    .dropdown-menu {
+      border-radius: 8px;
+      border: 1px solid #ffcc00;
+      box-shadow: 0 6px 18px rgba(255, 204, 0, 0.5);
+      font-weight: 600;
+      min-width: 200px;
+      padding: 0.3rem 0;
+    }
+
+    .dropdown-item {
+      color: rgb(2, 78, 99);
+      padding: 0.6rem 1.2rem;
+    }
+
+    .dropdown-item:hover {
+      background-color: #ffcc00;
+      color: rgb(2, 78, 99);
+    }
+
+    .main-content {
+      flex: 1 0 auto; /* Allow main-content to grow and shrink properly */
+      padding: 2rem;
+    }
+
+    footer {
+      background-color: rgb(2, 78, 99);
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      flex-shrink: 0;
+    }
+    footer .fab {
+      transition: transform 0.2s ease;
+    }
+    footer .fab:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 992px) {
+      .navbar-nav {
+        background-color: rgb(2, 78, 99);
+        padding: 1rem;
       }
-      /* Ensure elements fit within the screen */
-      .container-fluid {
+
+      .custom-btn {
         width: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      .navbar {
-          background-color: rgb(2, 78, 99); 
-      }
-      .navbar-nav .nav-item {
-          margin-left: 20px; /* Adjust spacing */
-      }
-      footer {
-          background-color: rgb(2, 78, 99);  
-          color: white;
-          text-align: center;
-      }
-      .navbar-nav .nav-link {
-          font-size: 20px;
-          color: white !important;
-      }
-      .navbar-nav .nav-link:hover {
-          color: #ffcc00 !important;  
-      }
-      .navbar:nth-of-type(2) {
-        background-color: rgb(70, 71, 71) !important; /* Change this color as needed */
-      }
-      .navbar:nth-of-type(2) .nav-link {
-        font-size: 15px;
-        color: white !important;
-      }
-      .navbar:nth-of-type(2) .nav-link:hover {
-        color: yellow !important;
-        text-decoration: underline; /* Underline on hover */
-      }
-      .navbar:nth-of-type(2) .nav-item {
-          margin-right: 0.5px; /* Adjust spacing */
-      }
-      .dropdown-item {
-          color: #003366;
-          font-size: 16px;   
-      }
-      .dropdown-item i {
-          
-          font-size: 18px; /* Adjust icon size */
-      }
-      .dropdown-item:hover {
-          background-color: #003366;
-          color: white;
-      }
-      .navbar-nav .dropdown:hover .dropdown-menu {
-        display: block;
-      }
-      /* Adjust the dropdown positioning */
-      .navbar-nav .dropdown-menu {
-        margin-top: 0; /* Ensures the dropdown appears right below the parent */
-      }
-      .custom-dark-blue {
-      background-color: #003366; 
-      color: rgb(242, 4, 4); 
-      }
-      .hover-zoom {
-        position: relative;
-        background-size: cover; 
-        background-position: center; 
-        width: 100%; 
-        height: 250px; 
-        overflow: hidden; 
-        transition: transform 0.3s ease-in-out; 
-      }
-      .hover-zoom img {
-          transition: transform 0.3s ease-in-out;
-          width: 80%; 
-          height: auto;
-          margin: 0 auto; 
-      }
-      .hover-zoom:hover img {
-          transform: scale(1.2); 
-      }
-      .hover-zoom:hover {
-          background-color:none;
-      }
-      .goodnessseccont p {
-          max-width: 200px; 
-          margin: 0 auto; 
-          text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-          position: relative;
-          z-index: 10; 
-          color: rgb(52, 2, 2); 
-          font-size: 1.2rem;
-          position: absolute;
-          bottom: 10px;
-          left: 50%;
-          transform: translateX(-50%);
-          color: rgb(67, 2, 2); 
-          font-weight: bold;
-          background-color: none; 
-          padding: 5px;
-      }
-      .goodnessseccont {
-          max-width: 200px; 
-          margin: 0 auto; 
-        }
-      .btn {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 8px 10px;
-        }
-        .goodnessseccont img {
-          width: 200px; /* Set a fixed width */
-          height: 180px; /* Set a fixed height */
-          object-fit: cover; /* Ensures image fills the area while maintaining aspect ratio */
-          border-radius: 5px; /* Optional: Rounded corners */
-          transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
-         
+        margin-bottom: 0.5rem;
       }
 
-      .goodnessseccont img:hover {
-          transform: scale(1.1); /* Slight zoom effect on hover */
+      .dropdown-menu {
+        position: static !important;
+        box-shadow: none;
+        border: none;
       }
-      .goodnessseccont .fw-bold {
-        font-size: 10px; /* Adjust the size as needed */
-        font-weight: bold; /* Ensures bold text */
-        color: #333; /* Optional: Adjust color */
-      }
+    }
   </style>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}">
-            
-          </a>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <!-- Left: Brand -->
+      <a class="navbar-brand me-auto" href="{% url 'home' %}">Tutorbuddies</a>
+
+      <!-- Toggle button for mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Center and Right Nav Items -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <!-- Centered links -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item mx-3">
+            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Home</a>
           </li>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              
-              <li class="nav-item mx-3">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-              </li>
-              <li class="nav-item mx-3">
-                <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
-              </li>
-              <li class="nav-item mx-3">
-                <a class="nav-link active" aria-current="page" href="{% url 'tutors' %}">Tutor</a>
-              </li>
-              <li class="nav-item mx-3">
-                <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contact</a>
-              </li> 
-              {% if user.is_authenticated %}
-              <li>
-                <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
-              </li>
-              {% else %}
-              <li>
-                <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
-              </li>
-              <li><a class="nav-link active" aria-current="page" href="{% url 'register' %}">Register</a>
-              </li>
-              {% endif %}
+          <li class="nav-item mx-3">
+            <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link {% if request.path == '/tutors/' %}active{% endif %}" href="{% url 'tutors' %}">Tutor</a>
+          </li>
+          <li class="nav-item dropdown mx-3">
+            <a class="nav-link dropdown-toggle {% if request.path == '/contact/' %}active{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home Tuition
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="">Offline Tuition</a></li>
+              <li><a class="dropdown-item" href="">Online Tuition</a></li>
+              <!-- Add more services as needed -->
             </ul>
-          </div>
-        </div>
-    </nav>
+          </li>
+          <li class="nav-item dropdown mx-3">
+            <a class="nav-link dropdown-toggle {% if request.path == '/contact/' %}active{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Coaching Center
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="">Online Coaching Classes</a></li>
+              <li><a class="dropdown-item" href="">Offline Coaching Classes</a></li>
+              <!-- Add more services as needed -->
+            </ul>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="{% url 'contact' %}">Contact Us</a>
+          </li>
+        </ul>
 
-    <!-- Page content -->
-    <div class="container my-4">
-        {% block content %}{% endblock %}
+        <!-- Right-side auth buttons -->
+        <ul class="navbar-nav ms-auto">
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+          {% else %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle custom-btn" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown">Login</a>
+              <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+                <li><a class="dropdown-item" href="{% url 'student_login' %}">Login as Student</a></li>
+                <li><a class="dropdown-item" href="{% url 'tutor_login' %}">Login as Teacher</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown ms-2">
+              <a class="nav-link dropdown-toggle custom-btn" href="#" id="registerDropdown" role="button" data-bs-toggle="dropdown">Register</a>
+              <ul class="dropdown-menu" aria-labelledby="registerDropdown">
+                <li><a class="dropdown-item" href="{% url 'register_parent' %}">Register as Parent</a></li>
+                <li><a class="dropdown-item" href="{% url 'tutor_login' %}">Register as Teacher</a></li>
+              </ul>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer class="container-fluid fixed-bottom">
-        <p class="mb-0">&copy; 2025 TutorBuddies. All rights reserved.</p>
-    </footer>
+  <!-- Page Content -->
+  <div class="main-content">
+    {% block content %}{% endblock %}
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 TutorBuddies. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

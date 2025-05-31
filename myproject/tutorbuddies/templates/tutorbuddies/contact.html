@@ -1,22 +1,161 @@
-
 {% extends 'tutorbuddies/base.html' %}
+{% load static %}
 
 {% block title %}Contact Us - TutorBuddies{% endblock %}
 
 {% block content %}
-<h2>Contact Us</h2>
+<style>
+    .contact-container {
+        background: linear-gradient(to right, #f0f8ff, #e6f2ff);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
 
-{% if messages %}
-  <ul>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
+    .contact-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #0d6efd;
+        margin-bottom: 30px;
+        text-align: center;
+    }
 
-<form method="post" novalidate>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Send Message</button>
-</form>
+    .contact-form label {
+        font-weight: 500;
+        color: #0d6efd;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        border-radius: 10px;
+        border: 1px solid #ced4da;
+        padding: 10px;
+    }
+
+    .contact-form button {
+        border-radius: 50px;
+        font-weight: 600;
+        padding: 10px 20px;
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+        background-color: #0b5ed7;
+    }
+
+    .message-list li {
+        color: green;
+        font-weight: 500;
+    }
+
+    .social-links {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .social-links a {
+        margin: 0 10px;
+        display: inline-block;
+        color: #fff;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        border-radius: 50%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .social-links a.instagram {
+        background: #E4405F;
+    }
+
+    .social-links a.facebook {
+        background: #3b5998;
+    }
+
+    .social-links a.linkedin {
+        background: #0077b5;
+    }
+
+    .social-links a.youtube {
+        background: #FF0000;
+    }
+
+    .social-links a.whatsapp {
+        background: #25D366;
+    }
+
+    .social-links a:hover {
+        transform: scale(1.1);
+    }
+
+    .social-links i {
+        font-size: 18px;
+    }
+
+    .contact-info {
+        text-align: center;
+        font-weight: 500;
+        margin-top: 30px;
+        font-size: 1.1rem;
+        color: #333;
+    }
+</style>
+
+<!-- FontAwesome for icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="contact-container">
+                <h2 class="contact-title">Get in Touch with Us</h2>
+
+                {% if messages %}
+                    <ul class="message-list">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                <form method="post" class="contact-form" novalidate>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                    </div>
+                </form>
+
+                <!-- Mobile Number Display -->
+                <div class="contact-info mt-4">
+                    📞 <strong>Call Us:</strong> +91 7470317397 | 7470987397
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="social-links mt-4">
+                    <h5 class="mb-3">Follow & Connect with Us</h5>
+                    <a href="https://www.instagram.com/tutorbuddies8" target="_blank" class="instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/Tutorbuddies" target="_blank" class="facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/TUTORBUDDIES/" target="_blank" class="linkedin" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://youtube.com/shorts/QYe7zHcYecE?si=WXE7__IeXHX_YMxS" target="_blank" class="youtube" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://wa.me/919876543210" target="_blank" class="whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

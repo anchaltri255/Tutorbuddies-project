@@ -1,0 +1,109 @@
+{% extends 'tutorbuddies/base.html' %}
+{% load static %}
+
+{% block title %}Student Login | TutorBuddies{% endblock %}
+
+{% block content %}
+<style>
+    .login-container {
+        background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+    .login-form label {
+        font-weight: 500;
+    }
+    .login-form input,
+    .login-form select,
+    .login-form textarea {
+        border-radius: 10px;
+    }
+    .login-form .btn {
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .section-title {
+        font-weight: 700;
+        color: #0d6efd;
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row align-items-center">
+        <!-- Left Side: Image -->
+        <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="{% static 'images/student.jpg' %}" alt="Student Illustration" class="img-fluid" style="max-height: 650px; width: 100%; object-fit: contain;">
+        </div>
+
+        <!-- Right Side: Login Form -->
+        <div class="col-md-6">
+            <div class="login-container">
+                <h3 class="text-center section-title">Student Login</h3>
+                <form method="post" class="login-form">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="father_name" class="form-label">Father's Name</label>
+                            <input type="text" id="father_name" name="father_name" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="mother_name" class="form-label">Mother's Name</label>
+                            <input type="text" id="mother_name" name="mother_name" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="school_name" class="form-label">School Name</label>
+                            <input type="text" id="school_name" name="school_name" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select id="gender" name="gender" class="form-select" required>
+                                <option selected disabled value="">Choose...</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="board" class="form-label">Board</label>
+                            <select id="board" name="board" class="form-select" required>
+                                <option selected disabled value="">Choose...</option>
+                                <option>CBSE</option>
+                                <option>ICSE</option>
+                                <option>State Board</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" id="city" name="city" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="mobile" class="form-label">Mobile Number</label>
+                            <input type="tel" id="mobile" name="mobile" class="form-control" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="email" class="form-label">Email ID</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea id="address" name="address" rows="2" class="form-control" required></textarea>
+                        </div>
+                    </div>
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

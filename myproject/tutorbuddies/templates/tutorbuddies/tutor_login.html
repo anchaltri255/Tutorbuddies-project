@@ -1,0 +1,104 @@
+
+{% extends 'tutorbuddies/base.html' %}
+{% load static %}
+
+{% block title %}Tutor Login | TutorBuddies{% endblock %}
+
+{% block content %}
+<style>
+    .login-container {
+        background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+    .login-form label {
+        font-weight: 500;
+    }
+    .login-form input,
+    .login-form select,
+    .login-form textarea {
+        border-radius: 10px;
+    }
+    .login-form .btn {
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .section-title {
+        font-weight: 700;
+        color: #198754;
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row align-items-center">
+        <!-- Left Side: Image -->
+        <div class="col-md-6 text-center mb-4 mb-md-0">
+            <img src="{% static 'images/tutor.jpg' %}" alt="Tutor Illustration" class="img-fluid" style="max-height: 550px; width: 100%; object-fit: contain;">
+        </div>
+
+        <!-- Right Side: Tutor Login Form -->
+        <div class="col-md-6">
+            <div class="login-container">
+                <h3 class="text-center section-title">Tutor Login</h3>
+                <form method="post" class="login-form">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" name="phone" class="form-control" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Email ID</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Qualification</label>
+                            <input type="text" name="qualification" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Subjects You Teach</label>
+                            <input type="text" name="subjects" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Classes You Teach</label>
+                            <input type="text" name="classes" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Experience (Years)</label>
+                            <input type="number" name="experience" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Preferred Mode</label>
+                            <select name="mode" class="form-select" required>
+                                <option selected disabled value="">Choose...</option>
+                                <option>Online</option>
+                                <option>Offline</option>
+                                <option>Both</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">City</label>
+                            <input type="text" name="city" class="form-control" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Address</label>
+                            <textarea name="address" rows="2" class="form-control" required></textarea>
+                        </div>
+                    </div>
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-success btn-lg">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

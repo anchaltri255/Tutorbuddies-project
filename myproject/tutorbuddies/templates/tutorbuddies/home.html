@@ -6,39 +6,45 @@
 {% block content %}
 
 <!-- 🚀 Bootstrap Carousel (Smaller Height + No Horizontal Padding) -->
-<div id="tutorCarousel" class="carousel slide" data-bs-ride="carousel" style="margin: 0; padding: 0;">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="{% static 'images/banner1.jpg' %}" class="d-block w-100 banner-image" alt="Slide 1">
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/banner2.jpg' %}" class="d-block w-100 banner-image" alt="Slide 2">
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/banner3.jpg' %}" class="d-block w-100 banner-image" alt="Slide 3">
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/banner4.jpg' %}" class="d-block w-100 banner-image" alt="Slide 4">
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/banner5.jpg' %}" class="d-block w-100 banner-image" alt="Slide 5">
-        </div>
+<div id="carouselExampleIndicators" class="carousel slide position-relative" data-bs-ride="carousel" data-bs-interval="2000">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/welcome.png' %}" class="d-block w-100 banner-image" alt="Slide 1">
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#tutorCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#tutorCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+
+    <div class="carousel-item">
+      <img src="{% static 'images/banner2.png' %}" class="d-block w-100 banner-image" alt="Slide 2">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'images/banner4.png' %}" class="d-block w-100 banner-image" alt="Slide 3">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'images/offline.png' %}" class="d-block w-100 banner-image" alt="Slide 4">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
 <!-- 🎯 Why Choose Us Section -->
 <div class="container my-5">
-    <h2 class="section-heading text-center">
-        <i class="bi bi-star-fill text-warning me-2"></i>Why Choose Us<i class="bi bi-star-fill text-warning ms-2"></i>
-    </h2>
+    <h2 class="text-center mb-8 section-heading-blue">Why Choose Us</h2>
     <div class="row g-4">
         {% comment %} Added class why-choose-card for custom styles {% endcomment %}
         <div class="col-md-4">
@@ -133,6 +139,117 @@
     </div>
 </div>
 
+<!-- 📍 Find Tutors Form Section -->
+<div class="container my-5 py-5 px-4 rounded shadow" style="background: linear-gradient(135deg, #fd9a83, #ffffff);">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold text-primary">Find Trusted Tutors Near You</h2>
+    <p class="text-muted mb-2">Get a qualified tutor in <strong>30 minutes</strong></p>
+    <h5 class="text-dark">Search by your location and get started today!</h5>
+  </div>
+
+  <form class="row gy-3 justify-content-center align-items-center">
+    <div class="col-md-6">
+      <input type="text" class="form-control form-control-lg shadow-sm" placeholder="Enter your location (e.g., Delhi, Mumbai)" required>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary btn-lg px-4 shadow">Search Now</button>
+    </div>
+  </form>
+
+  <div class="text-center mt-4">
+    <span class="text-muted">Popular Locations:</span><br />
+    <span class="badge bg-primary-subtle text-primary fw-medium mx-1">Delhi NCR</span>
+    <span class="badge bg-success-subtle text-success fw-medium mx-1">Mumbai</span>
+    <span class="badge bg-warning-subtle text-warning fw-medium mx-1">Bangalore</span>
+    <span class="badge bg-info-subtle text-info fw-medium mx-1">Chennai</span>
+  </div>
+</div>
+  <!-- 🌟 Why Perfect Tutor Section -->
+<div class="container my-5 py-5 text-center">
+  <!-- Heading -->
+  <h2 class="fw-bold text-danger mb-5 position-relative d-inline-block">
+    Why Perfect Tutor?
+    <span style="position: absolute; left: 50%; bottom: -10px; width: 120px; height: 3px; background-color: #444; transform: translateX(-50%); border-radius: 2px;"></span>
+  </h2>
+
+  <!-- Feature Cards -->
+  <div class="row justify-content-center g-4 mb-5">
+    <!-- Card 1: One-On-One Learning -->
+    <div class="col-md-4">
+      <div class="bg-white rounded-4 shadow-sm p-4 h-100 d-flex align-items-center justify-content-start gap-3 transition-hover">
+        <i class="fas fa-user-graduate fa-2x text-primary"></i>
+        <h6 class="mb-0 fw-semibold text-dark">One-On-One Learning</h6>
+      </div>
+    </div>
+
+    <!-- Card 2: Verified Profiles -->
+    <div class="col-md-4">
+      <div class="bg-white rounded-4 shadow-sm p-4 h-100 d-flex align-items-center justify-content-start gap-3 transition-hover">
+        <i class="fas fa-check-circle fa-2x text-success"></i>
+        <h6 class="mb-0 fw-semibold text-dark">100% Verified Profiles</h6>
+      </div>
+    </div>
+
+    <!-- Card 3: Best Online Platform -->
+    <div class="col-md-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100 d-flex align-items-center justify-content-start gap-3 transition-hover">
+            <i class="fas fa-user-check fa-2x text-primary"></i>
+            <h6 class="mb-0 fw-semibold text-dark">Carefully Selected & Verified Tutors</h6>
+        </div>
+    </div>
+
+  <!-- Card 2: Subject Experts with Real Teaching Experience -->
+    <div class="col-md-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100 d-flex align-items-center justify-content-start gap-3 transition-hover">
+            <i class="fas fa-chalkboard-teacher fa-2x text-success"></i>
+            <h6 class="mb-0 fw-semibold text-dark">Subject Experts with Real Teaching Experience</h6>
+        </div>
+    </div>
+  <!-- Card 3: Personalized Teaching Approach -->
+    <div class="col-md-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100 d-flex align-items-center justify-content-start gap-3 transition-hover">
+            <i class="fas fa-user-edit fa-2x text-danger"></i>
+            <h6 class="mb-0 fw-semibold text-dark">Personalized Teaching Approach</h6>
+        </div>
+    </div>
+  <!-- Card 4: Friendly, Supportive, and Patient -->
+    <div class="col-md-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100 d-flex align-items-center justify-content-start gap-3 transition-hover">
+            <i class="fas fa-smile fa-2x text-warning"></i>
+            <h6 class="mb-0 fw-semibold text-dark">Friendly, Supportive, and Patient</h6>
+        </div>
+    </div>
+
+  <!-- Card 5: Consistent Progress Tracking -->
+    <div class="col-md-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100 d-flex align-items-center justify-content-start gap-3 transition-hover">
+            <i class="fas fa-chart-line fa-2x text-info"></i>
+            <h6 class="mb-0 fw-semibold text-dark">Consistent Progress Tracking</h6>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100 d-flex align-items-center justify-content-start gap-3 transition-hover">
+            <i class="fas fa-exchange-alt fa-2x text-secondary"></i>
+            <h6 class="mb-0 fw-semibold text-dark">On-Demand Subject Flexibility</h6>
+        </div>
+    </div>
+    <div class="col-md-4">
+      <div class="bg-white rounded-4 shadow-sm p-4 h-100 d-flex align-items-center justify-content-start gap-3 transition-hover">
+        <i class="fas fa-laptop-code fa-2x text-danger"></i>
+        <h6 class="mb-0 fw-semibold text-dark">Get the Best Online Platform</h6>
+      </div>
+    </div>
+</div>
+
+  <!-- Supporting Statement -->
+  <p class="fw-bold fs-5 text-dark mb-4">
+    When you choose Perfect Tutor, you can be confident in investing in the most reliable tutoring services available in your area.
+  </p>
+
+  <!-- Button -->
+  <a href="#" class="btn btn-danger px-4 py-2 rounded-pill fw-semibold">Know More...</a>
+</div>
+
 <!-- 💼 Our Services Section -->
 <div class="container my-5">
     <h2 class="text-center mb-4 section-heading-blue">Our Services</h2>
@@ -221,7 +338,161 @@
     </div>
 </div>
 
-{% endblock %}
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold text-dark">Student and Parent Testimonials</h2>
+      <p class="text-muted">What our learners and their parents say about TutorBuddies</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      
+      <!-- Testimonial 1 -->
+      <div class="col-md-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://randomuser.me/api/portraits/women/79.jpg" alt="Anita Sharma" class="rounded-circle me-3" width="50" height="50">
+            <div>
+              <h6 class="mb-0 fw-semibold text-dark">Anita Sharma</h6>
+              <small class="text-muted">Parent of Class 8 Student</small>
+            </div>
+          </div>
+          <p class="text-muted">TutorBuddies has been a blessing! My son enjoys his sessions and has improved in Math and Science remarkably.</p>
+          <div class="text-warning">★★★★★</div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="col-md-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Rohan Mehta" class="rounded-circle me-3" width="50" height="50">
+            <div>
+              <h6 class="mb-0 fw-semibold text-dark">Rohan Mehta</h6>
+              <small class="text-muted">Class 10 Student</small>
+            </div>
+          </div>
+          <p class="text-muted">My tutor is super friendly and explains everything so clearly. I feel more confident about my exams now!</p>
+          <div class="text-warning">★★★★★</div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="col-md-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Suresh Verma" class="rounded-circle me-3" width="50" height="50">
+            <div>
+              <h6 class="mb-0 fw-semibold text-dark">Suresh Verma</h6>
+              <small class="text-muted">Parent of Class 6 Student</small>
+            </div>
+          </div>
+          <p class="text-muted">Excellent service and experienced tutors. My daughter enjoys learning again. Highly recommended!</p>
+          <div class="text-warning">★★★★★</div>
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="col-md-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100">
+          <div class="d-flex align-items-center mb-3">
+            <img src="{% static 'images/testimonials/mother.jpg' %}" alt="Priya Nair" class="rounded-circle me-3" width="50" height="50">
+            <div>
+              <h6 class="mb-0 fw-semibold text-dark">Priya Nair</h6>
+              <small class="text-muted">Parent of Class 5 Student</small>
+            </div>
+          </div>
+          <p class="text-muted">The tutors are very patient and understanding. My child’s confidence has grown so much in just a few weeks.</p>
+          <div class="text-warning">★★★★★</div>
+        </div>
+      </div>
+
+      <!-- Testimonial 5 -->
+      <div class="col-md-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100">
+          <div class="d-flex align-items-center mb-3">
+            <img src="https://randomuser.me/api/portraits/men/64.jpg" alt="Arjun Desai" class="rounded-circle me-3" width="50" height="50">
+            <div>
+              <h6 class="mb-0 fw-semibold text-dark">Arjun Desai</h6>
+              <small class="text-muted">Class 9 Student</small>
+            </div>
+          </div>
+          <p class="text-muted">Really great tutors and flexible timing. Helped me a lot in understanding tricky concepts in Physics.</p>
+          <div class="text-warning">★★★★★</div>
+        </div>
+      </div>
+
+      <!-- Testimonial 6 -->
+      <div class="col-md-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 h-100">
+          <div class="d-flex align-items-center mb-3">
+            <img src="{% static 'images/testimonials/mother2.jpg' %}" alt="Deepa Kulkarni" class="rounded-circle me-3" width="50" height="50">
+            <div>
+              <h6 class="mb-0 fw-semibold text-dark">Deepa Kulkarni</h6>
+              <small class="text-muted">Parent of Class 7 Student</small>
+            </div>
+          </div>
+          <p class="text-muted">Very reliable and supportive tutors. My daughter’s grades have improved significantly since we joined.</p>
+          <div class="text-warning">★★★★★</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark text-light pt-5 pb-4">
+  <div class="container">
+    <div class="row text-center text-md-start">
+      <div class="col-md-3 mb-4">
+        <h5 class="text-uppercase fw-bold border-bottom pb-2">Tutor by City</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">Hyderabad</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">Bangalore</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">Chennai</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">Delhi</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">Mumbai</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5 class="text-uppercase fw-bold border-bottom pb-2">Company</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">About Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">Contact Us</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">Privacy Policy</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5 class="text-uppercase fw-bold border-bottom pb-2">Tutor Jobs</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">Part Time</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">For Students</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">For Employees</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">For Online Teachers</a></li>
+          <li><a href="#" class="text-light text-decoration-none d-block py-1">For Offline Teachers</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5 class="text-uppercase fw-bold border-bottom pb-2">Get In Touch</h5>
+        <p class="small mb-1">
+          <i class="fas fa-map-marker-alt me-2 text-danger"></i>Shop No.12, Lakshmi Narayan Estate Complex, Satna (M.P.)
+        </p>
+        <p class="small mb-1">
+          <i class="fas fa-phone-alt me-2 text-success"></i>+91 7470317397 | 7470987397
+        </p>
+        <p class="small mb-3">
+          <i class="fas fa-envelope me-2 text-info"></i>tutorbuddies1@gmail.com
+        </p>
+        <div class="d-flex justify-content-center justify-content-md-start gap-3 mt-3">
+          <a href="https://facebook.com" target="_blank" class="text-decoration-none" style="color: #4267B2;"><i class="fab fa-facebook-f fa-lg"></i></a>
+          <a href="https://instagram.com" target="_blank" class="text-decoration-none" style="color: #C13584;"><i class="fab fa-instagram fa-lg"></i></a>
+          <a href="https://linkedin.com" target="_blank" class="text-decoration-none" style="color: #0077B5;"><i class="fab fa-linkedin fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <style>
 .why-choose-card, .service-card {
@@ -250,10 +521,11 @@
 .section-heading-blue {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #007bff;
+    color: #141e29;
     margin-bottom: 2rem;
     position: relative;
-    display: inline-block;
+    text-align: center; /* ensures text inside is centered */
+    /* remove display: inline-block; */
 }
 .section-heading-blue::after {
     content: '';
@@ -284,17 +556,86 @@
     margin-bottom: 1rem;
 }
 
-/* Banner image adjustments */
+/* Banner image improvements */
 .banner-image {
-    height: 350px;
+    width: 100%;
+    height: auto;
+    max-height: 400px;
     object-fit: cover;
     object-position: center;
 }
 
-/* Carousel cleanup */
+/* Carousel consistency */
+.carousel-inner {
+    max-height: 600px;
+    overflow: hidden;
+}
+
 .carousel {
     margin: 0;
     padding: 0;
 }
+.carousel-caption {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    text-align: center;
+}
+.banner-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 10px 25px;
+    border-radius: 40px;
+    font-weight: 600;
+    border: none;
+    text-transform: uppercase;
+}
+/* Subtle hover effect for badges */
+.badge:hover {
+    background-color: #f9b899 !important;
+    color: #fff !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+footer {
+    background-color: rgb(2, 78, 99);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    flex-shrink: 0;
+}
+footer .fab {
+    transition: transform 0.2s ease;
+}
+footer .fab:hover {
+      transform: scale(1.2);
+}
+.carousel-caption {
+  bottom: 100%;
+  z-index: 10;
+}
+
+.carousel-btn {
+  background-color: #ffc107;
+  color: #003049;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: 0.3s ease-in-out;
+}
+
+.carousel-btn:hover {
+  background-color: #00e034;
+  color: white;
+}
 
 </style>
+
+{% endblock %}
